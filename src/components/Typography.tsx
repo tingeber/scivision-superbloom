@@ -29,7 +29,9 @@ export const ModelsHeader = () => {
 					<ContributeButton link="/new-model" />
 				</div>
 			</div>
-			<div className="">{GridTableSwitcher("model")}</div>
+			{window.location.pathname !== "/" && (
+				<div className="">{GridTableSwitcher("model")}</div>
+			)}
 		</>
 	);
 };
@@ -50,7 +52,9 @@ export const DataHeader = () => {
 					<ContributeButton link="/new-datasource" />
 				</div>
 			</div>
-			<div className="">{GridTableSwitcher("datasource")}</div>
+			{window.location.pathname !== "/" && (
+				<div className="">{GridTableSwitcher("datasource")}</div>
+			)}
 		</>
 	);
 };
@@ -71,7 +75,9 @@ export const ProjectsHeader = () => {
 					<ContributeButton link="/new-project" />
 				</div>
 			</div>
-			<div className="">{GridTableSwitcher("project")}</div>
+			{window.location.pathname !== "/" && (
+				<div className="">{GridTableSwitcher("project")}</div>
+			)}
 		</>
 	);
 };

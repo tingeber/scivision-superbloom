@@ -4,20 +4,8 @@ type Thumbnails = {
 	project: string[];
 };
 
-function extract_thumbnail_paths(
-	glob_data: Record<string, () => Promise<unknown>>
-) {
-	const thumbnail_list: string[] = [];
-	for (const path in glob_data) {
-		glob_data[path]().then(() => {
-			thumbnail_list.push(path);
-		});
-	}
-	return thumbnail_list;
-}
-
 export const model_thumbnails = extract_thumbnail_paths(
-	import.meta.glob("@/catalog/data/thumbnails/models/*")
+	import.meta.glob("@/catalog/data/thumbnails/models/*.jpg")
 );
 
 export const datasource_thumbnails = extract_thumbnail_paths(
@@ -28,11 +16,65 @@ export const project_thumbnails = extract_thumbnail_paths(
 	import.meta.glob("@/catalog/data/thumbnails/projects/*.jpg")
 );
 
+// export const thumbnails: Thumbnails = {
+// 	model: model_thumbnails,
+// 	datasource: datasource_thumbnails,
+// 	project: project_thumbnails,
+// };
+
+// export function create_thumbnail_list(thumbnails: Thumbnails) {
+// 	thumbnails.model = extract_thumbnail_paths(
+// 		import.meta.glob("@/catalog/data/thumbnails/models/*.jpg")
+// 	);
+// 	thumbnails.datasource = extract_thumbnail_paths(
+// 		import.meta.glob("@/catalog/data/thumbnails/datasources/*.jpg")
+// 	);
+// 	thumbnails.project = extract_thumbnail_paths(
+// 		import.meta.glob("@/catalog/data/thumbnails/projects/*.jpg")
+// 	);
+// 	return thumbnails;
+// }
+
+const modelGlob = import.meta.glob("@/catalog/data/thumbnails/models/*.jpg", {
+	import: "default",
+	eager: true,
+});
+
+const datasourceGlob = import.meta.glob(
+	"@/catalog/data/thumbnails/datasources/*.jpg",
+	{
+		import: "default",
+		eager: true,
+	}
+);
+
+const projectGlob = import.meta.glob(
+	"@/catalog/data/thumbnails/projects/*.jpg",
+	{
+		import: "default",
+		eager: true,
+	}
+);
+
+function extract_thumbnail_paths(glob_data: Record<string, unknown>) {
+	const thumbnail_list: string[] = [];
+	Object.entries(glob_data).map(([v]) => thumbnail_list.push(v));
+	return thumbnail_list;
+}
+
+// function create_thumbnail_list(thumbnails: Thumbnails) {
+// 	thumbnails.model = extract_thumbnail_paths(modelGlob);
+// 	thumbnails.datasource = extract_thumbnail_paths(datasourceGlob);
+// 	thumbnails.project = extract_thumbnail_paths(projectGlob);
+// 	return thumbnails;
+// }
+
 export const thumbnails: Thumbnails = {
-	model: model_thumbnails,
-	datasource: datasource_thumbnails,
-	project: project_thumbnails,
+	model: extract_thumbnail_paths(modelGlob),
+	datasource: extract_thumbnail_paths(datasourceGlob),
+	project: extract_thumbnail_paths(projectGlob),
 };
+// create_thumbnail_list(thumbnails);
 
 export const fallbackThumbnail = (name: string) => {
 	return (

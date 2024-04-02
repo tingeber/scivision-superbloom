@@ -3,7 +3,7 @@ import useScript from "react-use-scripts";
 
 import DataTable from "react-data-table-component";
 
-import { datasource_thumbnails } from "@/utils/ExtractThumbnails";
+import { extractThumbnailFromName } from "@/utils/ExtractThumbnails";
 import {
 	renderThumbnailForTable,
 	TableCardDropdown,
@@ -69,10 +69,10 @@ function DatasourceTableContents() {
 			name: "Thumbnail",
 			width: "150px",
 			selector: (row) =>
-				datasource_thumbnails[`./${row.name}.jpg`] === undefined,
+				extractThumbnailFromName("datasource", row.name) === undefined,
 			sortable: true,
-			cell: (row, index, column, id) => {
-				const thumb = datasource_thumbnails[`./${row.name}.jpg`];
+			cell: (row) => {
+				const thumb = extractThumbnailFromName("datasource", row.name);
 				return renderThumbnailForTable(thumb);
 			},
 		},
@@ -85,8 +85,7 @@ function DatasourceTableContents() {
 		{
 			selector: (row) => row.tasks,
 			name: "Tasks",
-			cell: (row, index, column, id) =>
-				row.tasks.map((t) => <TaskBadge key={t} taskName={t} />),
+			cell: (row) => row.tasks.map((t) => <TaskBadge key={t} taskName={t} />),
 		},
 		{
 			selector: (row) => {

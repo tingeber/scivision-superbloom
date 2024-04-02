@@ -1,6 +1,6 @@
 import DataTable from "react-data-table-component";
 
-import { model_thumbnails } from "@/utils/ExtractThumbnails";
+import { extractThumbnailFromName } from "@/utils/ExtractThumbnails";
 import {
 	renderThumbnailForTable,
 	TableCardDropdown,
@@ -42,10 +42,11 @@ function ModelTableContents() {
 		{
 			name: "Thumbnail",
 			width: "150px",
-			selector: (row) => model_thumbnails[`./${row.name}.jpg`] === undefined,
+			selector: (row) =>
+				extractThumbnailFromName("model", row.name) === undefined,
 			sortable: true,
-			cell: (row, index, column, id) => {
-				const thumb = model_thumbnails[`./${row.name}.jpg`];
+			cell: (row) => {
+				const thumb = extractThumbnailFromName("model", row.name);
 				return renderThumbnailForTable(thumb);
 			},
 		},
@@ -58,8 +59,7 @@ function ModelTableContents() {
 		{
 			name: "Tasks",
 			selector: (row) => row.tasks,
-			cell: (row, index, column, id) =>
-				row.tasks.map((t) => <TaskBadge key={t} taskName={t} />),
+			cell: (row) => row.tasks.map((t) => <TaskBadge key={t} taskName={t} />),
 		},
 	];
 

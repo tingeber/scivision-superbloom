@@ -37,7 +37,8 @@ const Card = ({
 						fallbackThumbnail(name)
 					) : (
 						<img
-							src={new URL(thumbnailFromName, import.meta.url).href}
+							// src={new URL(thumbnailFromName, import.meta.url).href}
+							src={`/catalog/data/thumbnails/${type}s/${name}.jpg`}
 							alt={name}
 							className="h-full w-full object-cover object-center"
 						/>
@@ -83,7 +84,8 @@ export const CardSidebar = ({
 						fallbackThumbnail(name)
 					) : (
 						<img
-							src={new URL(thumbnailFromName, import.meta.url).href}
+							// src={new URL(thumbnailFromName, import.meta.url).href}
+							src={`/catalog/data/thumbnails/${type}s/${name}.jpg`}
 							alt={name}
 							className="h-full w-full object-cover object-center"
 						/>
@@ -121,7 +123,8 @@ export const MiniCard = ({ name, type }: CardProps) => {
 						fallbackThumbnail(name)
 					) : (
 						<img
-							src={new URL(thumbnailFromName, import.meta.url).href}
+							// src={new URL(thumbnailFromName, import.meta.url).href}
+							src={`/catalog/data/thumbnails/${type}s/${name}.jpg`}
 							alt={name}
 							className="h-full w-full object-cover object-center"
 						/>

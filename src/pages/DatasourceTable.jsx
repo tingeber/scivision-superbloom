@@ -73,7 +73,7 @@ function DatasourceTableContents() {
 			sortable: true,
 			cell: (row) => {
 				const thumb = extractThumbnailFromName("datasource", row.name);
-				return renderThumbnailForTable(thumb);
+				return renderThumbnailForTable(thumb, row.name, "datasource");
 			},
 		},
 		{

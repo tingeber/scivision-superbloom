@@ -47,7 +47,7 @@ function ModelTableContents() {
 			sortable: true,
 			cell: (row) => {
 				const thumb = extractThumbnailFromName("model", row.name);
-				return renderThumbnailForTable(thumb);
+				return renderThumbnailForTable(thumb, row.name, "model");
 			},
 		},
 		{

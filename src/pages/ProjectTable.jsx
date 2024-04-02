@@ -39,7 +39,7 @@ function ProjectTableContents() {
 			sortable: true,
 			cell: (row) => {
 				const thumb = extractThumbnailFromName("project", row.name);
-				return renderThumbnailForTable(thumb);
+				return renderThumbnailForTable(thumb, row.name, "project");
 			},
 		},
 		{

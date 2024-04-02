@@ -75,7 +75,8 @@ export function ModelSingleView({
 						fallbackThumbnail(name)
 					) : (
 						<img
-							src={new URL(thumbnailFromName, import.meta.url).href}
+							// src={new URL(thumbnailFromName, import.meta.url).href}
+							src={`/catalog/data/thumbnails/${type}s/${name}.jpg`}
 							alt={name}
 							className="h-full w-full object-cover object-center"
 						/>
@@ -169,7 +170,8 @@ export function DatasourceSingleView({
 						fallbackThumbnail(name)
 					) : (
 						<img
-							src={new URL(thumbnailFromName, import.meta.url).href}
+							// src={new URL(thumbnailFromName, import.meta.url).href}
+							src={`/catalog/data/thumbnails/${type}s/${name}.jpg`}
 							alt={name}
 							className="h-full w-full object-cover object-center"
 						/>
@@ -285,7 +287,8 @@ export function ProjectSingleView({
 						fallbackThumbnail(name)
 					) : (
 						<img
-							src={new URL(thumbnailFromName, import.meta.url).href}
+							// src={new URL(thumbnailFromName, import.meta.url).href}
+							src={`/catalog/data/thumbnails/${type}s/${name}.jpg`}
 							alt={name}
 							className="h-full w-full object-cover object-center"
 						/>

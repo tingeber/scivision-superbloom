@@ -69,7 +69,7 @@ export function ModelSingleView({
 			<div className="px-4 sm:px-0">
 				<PageTitle>{name}</PageTitle>
 
-				<div className="w-1/4 mr-4 aspect-square overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 shadow-sm">
+				<div className="w-full md:w-1/4 mr-4 aspect-square overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 shadow-sm">
 					{thumbnailFromName === undefined ||
 					thumbnailFromName.endsWith("undefined") ? (
 						fallbackThumbnail(name)
@@ -164,7 +164,7 @@ export function DatasourceSingleView({
 			<div className="px-4 sm:px-0">
 				<PageTitle>{name}</PageTitle>
 
-				<div className="w-1/4 mr-4 aspect-square overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 shadow-sm">
+				<div className="w-full md:w-1/4 mr-4 aspect-square overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 shadow-sm">
 					{thumbnailFromName === undefined ||
 					thumbnailFromName.endsWith("undefined") ? (
 						fallbackThumbnail(name)
@@ -281,7 +281,7 @@ export function ProjectSingleView({
 				<PageTitle>{header}</PageTitle>
 				<small>{name}</small>
 
-				<div className="w-1/4 mr-4 aspect-square overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 shadow-sm">
+				<div className="w-full md:w-1/4 mr-4 aspect-square overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 shadow-sm">
 					{thumbnailFromName === undefined ||
 					thumbnailFromName.endsWith("undefined") ? (
 						fallbackThumbnail(name)
@@ -355,7 +355,7 @@ export function ProjectSingleView({
 							Model(s):
 						</dt>
 						<dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-							<div className="grid grid-cols-4 gap-4">
+							<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
 								{models?.map((model) => (
 									<MiniCard name={model} type={"model"} key={model} />
 								))}
@@ -367,7 +367,7 @@ export function ProjectSingleView({
 							Data source(s):
 						</dt>
 						<dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-							<div className="grid grid-cols-4 gap-4">
+							<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
 								{datasources?.map((ds) => (
 									<MiniCard name={ds} type={"datasource"} key={ds} />
 								))}

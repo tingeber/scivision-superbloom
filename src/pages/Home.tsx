@@ -43,7 +43,7 @@ export default function Home() {
 											<span>View all models</span>
 											<ArrowLongRightIcon className="w-6 h-6 ml-2" />
 										</Link>
-										<div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-3 md:gap-y-0 lg:gap-x-8">
+										<div className="mt-6 grid grid-cols-1 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-3 md:gap-y-0 lg:gap-x-8">
 											{models_sample.map((model) => (
 												<Card
 													name={model.name}
@@ -74,7 +74,7 @@ export default function Home() {
 											<span>View all data</span>
 											<ArrowLongRightIcon className="w-6 h-6 ml-2" />
 										</Link>
-										<div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-3 md:gap-y-0 lg:gap-x-8">
+										<div className="mt-6 grid grid-cols-1 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-3 md:gap-y-0 lg:gap-x-8">
 											{datasources_sample.map((ds) => (
 												<Card
 													name={ds.name}

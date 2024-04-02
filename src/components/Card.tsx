@@ -31,7 +31,7 @@ const Card = ({
 	return (
 		<div key={name} className="group relative">
 			<Link to={`/${type}/` + encodeURIComponent(name)}>
-				<div className="w-full aspect-square overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 shadow-sm">
+				<div className="w-1/2 md:w-full aspect-square overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 shadow-sm">
 					{thumbnailFromName === undefined ||
 					thumbnailFromName.endsWith("undefined") ? (
 						fallbackThumbnail(name)
@@ -47,7 +47,9 @@ const Card = ({
 			</Link>
 			<h3 className="mt-4 text-gray-700 break-words">{name}</h3>
 
-			<p className="mt-1 mb-2 text-sm text-gray-500 min-h-20">{description}</p>
+			<p className="mt-1 mb-2 text-sm text-gray-500 md:min-h-20">
+				{description}
+			</p>
 
 			<Link to={`/${type}/` + encodeURIComponent(name)}>
 				<button

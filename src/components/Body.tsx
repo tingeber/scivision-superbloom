@@ -5,7 +5,7 @@ const Body = (props: BodyProps) => {
 	return (
 		<main className="-mt-24 pb-8">
 			<div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-				<div className="overflow-hidden rounded-lg bg-white shadow p-12">
+				<div className="overflow-hidden rounded-lg bg-white shadow p-4 pt-12 md:p-12">
 					{props.children}
 				</div>
 			</div>

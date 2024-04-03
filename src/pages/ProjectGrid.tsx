@@ -1,4 +1,4 @@
-import Card from "@/components/Card";
+import { ProjectCard } from "@/components/Card";
 
 import { ProjectsHeader } from "@/components/Typography";
 
@@ -12,14 +12,15 @@ export default function ProjectGrid() {
 		<>
 			<ProjectsHeader />
 
-			<div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-12 sm:gap-x-6 md:grid-cols-4 md:gap-y-12 lg:gap-x-8">
+			<div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-12 sm:gap-x-6 md:grid-cols-2 md:gap-y-12 lg:gap-x-8">
 				{projects.entries.map((project) => (
-					<Card
+					<ProjectCard
 						name={project.name}
 						key={project.name}
 						description={makeExcerpt(project.description)}
 						tasks={project.tasks}
 						type="project"
+						header={project.header}
 					/>
 				))}
 			</div>

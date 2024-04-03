@@ -17,6 +17,7 @@ type CardProps = {
 	tags?: string[];
 	domains?: string[];
 	institution?: string;
+	header?: string;
 };
 
 const Card = ({
@@ -45,7 +46,7 @@ const Card = ({
 					)}
 				</div>
 			</Link>
-			<h3 className="mt-4 text-gray-700 break-words">{name}</h3>
+			<h3 className="mt-4 text-gray-700 break-words font-mono">{name}</h3>
 
 			<p className="mt-1 mb-2 text-sm text-gray-500 md:min-h-20">
 				{description}
@@ -73,12 +74,18 @@ export const CardSidebar = ({
 	tasks,
 	scivision_usable,
 	type,
+	header,
 }: CardProps) => {
 	const thumbnailFromName = extractThumbnailFromName(type, name);
 
 	return (
 		<div key={name} className="group relative border-b-2 border-gray-300">
-			<h3 className="mt-4 font-semibold break-words">{name}</h3>
+			<Link
+				to={`/${type}/` + encodeURIComponent(name)}
+				className="no-underline text-black"
+			>
+				<h3 className="mt-4 font-semibold break-words">{header}</h3>
+			</Link>
 			<div className="flex">
 				<div className="w-5/12 mr-4 aspect-square overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 shadow-sm">
 					{thumbnailFromName === undefined ||
@@ -104,6 +111,58 @@ export const CardSidebar = ({
 				</div>
 			</div>
 
+			<div className="my-4">
+				<UsageBadge usageBool={scivision_usable} />
+				{tasks?.map((task) => <TaskBadge taskName={task} key={task} />)}
+			</div>
+		</div>
+	);
+};
+
+export const ProjectCard = ({
+	name,
+	description,
+	tasks,
+	scivision_usable,
+	type,
+	header,
+}: CardProps) => {
+	const thumbnailFromName = extractThumbnailFromName(type, name);
+
+	return (
+		<div key={name} className="group relative">
+			<div className="flex">
+				<div className="w-5/12">
+					<div className=" mr-4 aspect-square overflow-hidden rounded-md group-hover:opacity-75 shadow-sm">
+						{thumbnailFromName === undefined ||
+						thumbnailFromName.endsWith("undefined") ? (
+							fallbackThumbnail(name)
+						) : (
+							<img
+								// src={new URL(thumbnailFromName, import.meta.url).href}
+								src={`/catalog/data/thumbnails/${type}s/${name}.jpg`}
+								alt={name}
+								className="h-full w-full object-cover object-center"
+							/>
+						)}
+					</div>
+				</div>
+				<div className="w-3/4">
+					<Link
+						to={`/${type}/` + encodeURIComponent(name)}
+						className="no-underline text-black"
+					>
+						<h3 className="mt-4 font-semibold break-words">{header}</h3>
+					</Link>
+					<p className="my-2 text-sm text-gray-500">{description}</p>
+					<Link to={`/${type}/` + encodeURIComponent(name)}>
+						<button
+							type="button"
+							className="w-full rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-scipurple shadow-sm ring-1 ring-inset ring-scipurple hover:bg-gray-50"
+						>{`View ${type}`}</button>
+					</Link>
+				</div>
+			</div>
 			<div className="my-4">
 				<UsageBadge usageBool={scivision_usable} />
 				{tasks?.map((task) => <TaskBadge taskName={task} key={task} />)}

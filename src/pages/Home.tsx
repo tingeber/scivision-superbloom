@@ -119,6 +119,7 @@ export default function Home() {
 											tasks={proj.tasks}
 											scivision_usable={proj.scivision_usable}
 											type="project"
+											header={proj.header}
 										/>
 									))}
 								</div>

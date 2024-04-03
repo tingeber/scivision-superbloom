@@ -1,13 +1,14 @@
 import { Buffer } from "buffer";
-import { React, useState } from "react";
+import { useState } from "react";
 import { Spinner, Modal, Alert, Button, Col } from "react-bootstrap";
 import MarkdownView from "react-showdown";
-import Form from "@rjsf/bootstrap-4";
+// import Form from "@rjsf/bootstrap-4";
+import TailwindForm from "@/components/rjsf";
 import validator from "@rjsf/validator-ajv8";
 
-import ImageUpload, { PlaceholderImage } from "./ImageUpload.jsx";
-import { download } from "./utils/utils.js";
-import { OctokitPRPlugin, GH_TOKEN_KEY } from "./config.js";
+import ImageUpload, { PlaceholderImage } from "../ImageUpload.jsx";
+import { download } from "@/utils/utils.js";
+import { OctokitPRPlugin, GH_TOKEN_KEY } from "@/config.js";
 
 // Template (for rjsf) to allow Markdown formatting in form field
 // descriptions
@@ -208,7 +209,7 @@ export default function CatalogEntryForm({
 					</p>
 				</Modal.Body>
 			</Modal>
-			<Form
+			<TailwindForm
 				onSubmit={submitEntryToGitHub}
 				schema={schema}
 				uiSchema={uiSchema}
@@ -262,7 +263,7 @@ export default function CatalogEntryForm({
 						Download entry data as json
 					</Button>
 				</Col>
-			</Form>
+			</TailwindForm>
 		</div>
 	);
 }

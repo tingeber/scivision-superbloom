@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { sample_without_replacement } from "@/utils/utils.js";
+// import { sample_without_replacement } from "@/utils/utils.js";
 
 import Card, { CardSidebar } from "@/components/Card";
 
@@ -14,11 +14,16 @@ import { makeExcerpt } from "@/utils/MakeExcerpt";
 import { ArrowLongRightIcon } from "@heroicons/react/24/outline";
 import { DataHeader, ModelsHeader } from "@/components/Typography";
 
-// pick three random models and datasources (with thumbnails)
-//
-const models_sample = sample_without_replacement(models.entries, 3);
-const datasources_sample = sample_without_replacement(datasources.entries, 3);
-const projects_sample = sample_without_replacement(projects.entries, 3);
+// pick three random models, datasources and projects
+const models_sample = models.entries
+	.sort(() => Math.random() - 0.5)
+	.slice(0, 3);
+const datasources_sample = datasources.entries
+	.sort(() => Math.random() - 0.5)
+	.slice(0, 3);
+const projects_sample = projects.entries
+	.sort(() => Math.random() - 0.5)
+	.slice(0, 3);
 
 // Component: The home page
 // route: /
@@ -81,7 +86,6 @@ export default function Home() {
 													key={ds.name}
 													description={makeExcerpt(ds.description)}
 													tasks={ds.tasks}
-													scivision_usable={ds.scivision_usable}
 													type="datasource"
 												/>
 											))}
@@ -117,7 +121,6 @@ export default function Home() {
 											key={proj.name}
 											description={makeExcerpt(proj.description)}
 											tasks={proj.tasks}
-											scivision_usable={proj.scivision_usable}
 											type="project"
 											header={proj.header}
 										/>

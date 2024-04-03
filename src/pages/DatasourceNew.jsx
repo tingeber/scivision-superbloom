@@ -1,7 +1,7 @@
 import { Container, Alert } from "react-bootstrap";
 import CatalogEntryForm, {
 	CatalogFormHowItWorksBox,
-} from "../CatalogEntryForm.jsx";
+} from "@/components/CatalogEntryForm.jsx";
 import { LoginButton } from "../utils/login.jsx";
 
 import "bootstrap-icons/font/bootstrap-icons.css";

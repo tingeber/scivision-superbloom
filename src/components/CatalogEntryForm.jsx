@@ -2,8 +2,7 @@ import { Buffer } from "buffer";
 import { useState } from "react";
 import { Spinner, Modal, Alert, Button, Col } from "react-bootstrap";
 import MarkdownView from "react-showdown";
-// import Form from "@rjsf/bootstrap-4";
-import TailwindForm from "@/components/rjsf";
+import Form from "@rjsf/core";
 import validator from "@rjsf/validator-ajv8";
 
 import ImageUpload, { PlaceholderImage } from "../ImageUpload.jsx";
@@ -209,7 +208,7 @@ export default function CatalogEntryForm({
 					</p>
 				</Modal.Body>
 			</Modal>
-			<TailwindForm
+			<Form
 				onSubmit={submitEntryToGitHub}
 				schema={schema}
 				uiSchema={uiSchema}
@@ -263,7 +262,7 @@ export default function CatalogEntryForm({
 						Download entry data as json
 					</Button>
 				</Col>
-			</TailwindForm>
+			</Form>
 		</div>
 	);
 }

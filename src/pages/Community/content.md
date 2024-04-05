@@ -18,10 +18,10 @@ Future events will be advertised on Slack and the mailing list.
 
 The Scivision Slack workspace is open to anyone interested in:
 
-- Discussing computer vision in the sciences and humanities
-- Getting help with computer vision methods, and helping others
-- Getting support using the Scivision catalogue and software
-- Sharing and finding out about interesting events
+-   Discussing computer vision in the sciences and humanities
+-   Getting help with computer vision methods, and helping others
+-   Getting support using the Scivision catalogue and software
+-   Sharing and finding out about interesting events
 
 We aim for this to be a welcome and supportive place to discuss computer vision, share ideas and ask questions. Using (or even intending to use) the Scivision software is not a prerequisite for joining!
 
@@ -31,9 +31,9 @@ To join the Slack Workspace, [submit your email address](https://docs.google.com
 
 Development of Scivision is hosted on GitHub.
 
-- [Discussions](https://github.com/alan-turing-institute/scivision/discussions) — ask a question, make a suggestion
-- [Issues](https://github.com/alan-turing-institute/scivision/issues) — report a bug, request a feature
-- Code contributions welcome, see the [contributing guide](https://scivision.readthedocs.io/en/latest/contributing.html)
+-   [Discussions](https://github.com/alan-turing-institute/scivision/discussions) — ask a question, make a suggestion
+-   [Issues](https://github.com/alan-turing-institute/scivision/issues) — report a bug, request a feature
+-   Code contributions welcome, see the [contributing guide](https://scivision.readthedocs.io/en/latest/contributing.html)
 
 ## Scivision Improvement Proposal Index
 

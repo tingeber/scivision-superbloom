@@ -2,13 +2,14 @@ import CatalogEntryForm, {
     CatalogFormHowItWorksBox,
 } from '@/components/CatalogEntryForm.jsx'
 import { LoginButton } from '../utils/login.jsx'
+import { PageTitle } from '@/components/Typography'
 
 import model_schema from '../catalog/model_schema.js'
 
 export default function ModelNew({ gh_logged_in }) {
     return (
         <>
-            <h2>Add a model to the catalog</h2>
+            <PageTitle>Add a model to the catalog</PageTitle>
 
             <div className="mt-6 border-t border-gray-100">
                 <dl className="divide-y divide-gray-100">

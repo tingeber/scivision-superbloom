@@ -82,3 +82,20 @@ export const ProjectsHeader = () => {
         </>
     )
 }
+
+export const Header = (props: { title: string; description?: string }) => {
+    return (
+        <>
+            <div className="flex flex-col justify-between border-b-2 border-scipurple pb-4 md:flex-row">
+                <div className="w-full md:w-7/12">
+                    <h2>{props.title}</h2>
+                    {props.description && (
+                        <p className="text-sm md:text-base">
+                            {props.description}
+                        </p>
+                    )}
+                </div>
+            </div>
+        </>
+    )
+}

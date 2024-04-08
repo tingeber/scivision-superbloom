@@ -1,4 +1,3 @@
-import { Container, Alert } from 'react-bootstrap'
 import CatalogEntryForm, {
     CatalogFormHowItWorksBox,
 } from '@/components/CatalogEntryForm.jsx'
@@ -8,83 +7,96 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 
 import datasource_schema from '../catalog/datasource_schema.js'
 
+import { PageTitle } from '@/components/Typography'
+
 export default function DatasourceNew({ gh_logged_in }) {
     return (
         <>
-            <h3>Add a datasource to the catalog</h3>
+            <PageTitle>Add a datasource to the catalog</PageTitle>
 
-            <h4>What is this?</h4>
+            <div className="mt-6 border-t border-gray-100">
+                <dl className="divide-y divide-gray-100">
+                    <div className="px-4 py-6 sm:grid sm:grid-cols-4 sm:gap-4 sm:px-0">
+                        <dt className="text-sm font-medium leading-6 text-gray-900">
+                            <h3>What is this?</h3>
+                        </dt>
+                        <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-3 sm:mt-0">
+                            <p>
+                                Use this form if you have a dataset you would
+                                like to be included in the Datasource catalog.
+                            </p>
+                            <CatalogFormHowItWorksBox />
+                        </dd>
+                    </div>
+                    <div className="px-4 py-6 sm:grid sm:grid-cols-4 sm:gap-4 sm:px-0">
+                        <dt className="text-sm font-medium leading-6 text-gray-900">
+                            <h3>Prerequisites</h3>
+                        </dt>
+                        <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-3 sm:mt-0">
+                            <div className="prose mt-1 max-w-2xl text-sm leading-6 text-gray-500">
+                                <ul className="list-spaced">
+                                    <li>
+                                        You have a GitHub account
+                                        <ul>
+                                            <li>
+                                                You can sign up for a free
+                                                account by clicking the Login
+                                                button below and choosing
+                                                "Create an account" when
+                                                prompted for your credentials
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        {' '}
+                                        Your data is in a publicly accessible
+                                        location (for example, on{' '}
+                                        <a href="https://zenodo.org/">Zenodo</a>
+                                        ).
+                                        <ul>
+                                            <li>
+                                                The Scivision catalog does not
+                                                host your data directly, just
+                                                some metadata about it, so this
+                                                must be accessible elsewhere.
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        {' '}
+                                        <strong>(Optionally)</strong> Your data
+                                        repository is in the{' '}
+                                        <a href="https://scivision.readthedocs.io/en/latest/data_repository_template.html#data-repo-structure">
+                                            format expected by Scivision
+                                        </a>{' '}
+                                        <ul>
+                                            <li>
+                                                This has the benefit of allowing
+                                                programmatic access to the data
+                                                using Scivision.Py
+                                            </li>
+                                            <li>
+                                                {' '}
+                                                If it is in the Scivision
+                                                format, make a note of the
+                                                direct link to the{' '}
+                                                <a href="https://scivision.readthedocs.io/en/latest/data_repository_template.html#data-config-file">
+                                                    data config file
+                                                </a>{' '}
+                                                in your repository
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
 
-            <Container className="text-block">
-                <p>
-                    Use this form if you have a dataset you would like to be
-                    included in the Datasource catalog.
-                </p>
+            <h2>Add your datasource</h2>
 
-                <CatalogFormHowItWorksBox />
-            </Container>
-
-            <h4>Prerequistes</h4>
-
-            <Container className="text-block">
-                <Alert variant="secondary">
-                    <ul className="list-spaced">
-                        <li>
-                            You have a GitHub account
-                            <ul>
-                                <li>
-                                    You can sign up for a free account by
-                                    clicking the Login button below and choosing
-                                    "Create an account" when prompted for your
-                                    credentials
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            {' '}
-                            Your data is in a publicly accessible location (for
-                            example, on <a href="https://zenodo.org/">Zenodo</a>
-                            ).
-                            <ul>
-                                <li>
-                                    The Scivision catalog does not host your
-                                    data directly, just some metadata about it,
-                                    so this must be accessible elsewhere.
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            {' '}
-                            <strong>(Optionally)</strong> Your data repository
-                            is in the{' '}
-                            <a href="https://scivision.readthedocs.io/en/latest/data_repository_template.html#data-repo-structure">
-                                format expected by Scivision
-                            </a>{' '}
-                            <ul>
-                                <li>
-                                    This has the benefit of allowing
-                                    programmatic access to the data using
-                                    Scivision.Py
-                                </li>
-                                <li>
-                                    {' '}
-                                    If it is in the Scivision format, make a
-                                    note of the direct link to the{' '}
-                                    <a href="https://scivision.readthedocs.io/en/latest/data_repository_template.html#data-config-file">
-                                        data config file
-                                    </a>{' '}
-                                    in your repository
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </Alert>
-            </Container>
-
-            <h4>Add your datasource</h4>
-
-            <Container className="text-block">
+            <div className="">
                 {!gh_logged_in ? (
                     <div
                         className="m-5"
@@ -138,7 +150,7 @@ export default function DatasourceNew({ gh_logged_in }) {
                     />
                 )}
                 <div className="p-3"></div>
-            </Container>
+            </div>
         </>
     )
 }

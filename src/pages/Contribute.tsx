@@ -79,7 +79,7 @@ export default function Contribute() {
                                     {action.title}
                                 </Link>
                             </h3>
-                            <p className="mt-2 text-sm text-gray-500">
+                            <p className="mt-2 text-sm text-gray-500 md:text-base">
                                 {action.text}
                             </p>
                         </div>

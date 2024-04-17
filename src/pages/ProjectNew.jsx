@@ -17,7 +17,7 @@ export default function ProjectNew({ gh_logged_in }) {
                         <dt className="text-sm font-medium leading-6 text-gray-900">
                             <h3>Prerequisites</h3>
                         </dt>
-                        <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-3 sm:mt-0">
+                        <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-3 sm:mt-0 md:text-base">
                             <div className="prose mt-1 max-w-2xl text-sm leading-6 text-gray-500">
                                 <ul>
                                     <li>
@@ -51,7 +51,7 @@ export default function ProjectNew({ gh_logged_in }) {
                         <dt className="text-sm font-medium leading-6 text-gray-900">
                             <h3>Add your project</h3>
                         </dt>
-                        <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-3 sm:mt-0">
+                        <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-3 sm:mt-0 md:text-base">
                             <div className="prose mt-1 max-w-2xl text-sm leading-6 text-gray-500">
                                 <p>
                                     Add the details that will form the basis of

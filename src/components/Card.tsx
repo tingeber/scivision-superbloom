@@ -48,14 +48,14 @@ const Card = ({
             </Link>
             <h3 className="mt-4 break-words font-mono text-gray-700">{name}</h3>
 
-            <p className="mb-2 mt-1 text-sm text-gray-500 md:min-h-20">
+            <p className="mb-2 mt-1 text-sm text-gray-500 md:min-h-20 md:text-base">
                 {description}
             </p>
 
             <Link to={`/${type}/` + encodeURIComponent(name)}>
                 <button
                     type="button"
-                    className="w-full rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-scipurple shadow-sm ring-1 ring-inset ring-scipurple hover:bg-gray-50"
+                    className="w-full rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-scipurple shadow-sm ring-1 ring-inset ring-scipurple hover:bg-gray-50 md:text-base"
                 >{`View ${type}`}</button>
             </Link>
             <div className="my-4">
@@ -101,7 +101,9 @@ export const CardSidebar = ({
                     )}
                 </div>
                 <div className="w-3/4">
-                    <p className="my-2 text-sm text-gray-500">{description}</p>
+                    <p className="my-2 text-sm text-gray-500 md:text-base">
+                        {description}
+                    </p>
                     <Link to={`/${type}/` + encodeURIComponent(name)}>
                         <button
                             type="button"
@@ -156,7 +158,9 @@ export const ProjectCard = ({
                             {header}
                         </h3>
                     </Link>
-                    <p className="my-2 text-sm text-gray-500">{description}</p>
+                    <p className="my-2 text-sm text-gray-500 md:text-base">
+                        {description}
+                    </p>
                     <Link to={`/${type}/` + encodeURIComponent(name)}>
                         <button
                             type="button"

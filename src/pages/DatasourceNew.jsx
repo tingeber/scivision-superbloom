@@ -20,7 +20,7 @@ export default function DatasourceNew({ gh_logged_in }) {
                         <dt className="text-sm font-medium leading-6 text-gray-900">
                             <h3>What is this?</h3>
                         </dt>
-                        <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-3 sm:mt-0">
+                        <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-3 sm:mt-0 md:text-base">
                             <p>
                                 Use this form if you have a dataset you would
                                 like to be included in the Datasource catalog.
@@ -33,7 +33,7 @@ export default function DatasourceNew({ gh_logged_in }) {
                             <h3>Prerequisites</h3>
                         </dt>
                         <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-3 sm:mt-0">
-                            <div className="prose mt-1 max-w-2xl text-sm leading-6 text-gray-500">
+                            <div className="prose mt-1 max-w-2xl text-sm leading-6 text-gray-500 md:text-base">
                                 <ul className="list-spaced">
                                     <li>
                                         You have a GitHub account

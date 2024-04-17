@@ -1,3 +1,5 @@
+import defaultThumbnail from '@/assets/default-thumbnail.svg'
+
 type Thumbnails = {
     model: string[]
     datasource: string[]
@@ -62,36 +64,24 @@ function extract_thumbnail_paths(glob_data: Record<string, unknown>) {
     return thumbnail_list
 }
 
-// function create_thumbnail_list(thumbnails: Thumbnails) {
-// 	thumbnails.model = extract_thumbnail_paths(modelGlob);
-// 	thumbnails.datasource = extract_thumbnail_paths(datasourceGlob);
-// 	thumbnails.project = extract_thumbnail_paths(projectGlob);
-// 	return thumbnails;
-// }
-
 export const thumbnails: Thumbnails = {
     model: extract_thumbnail_paths(modelGlob),
     datasource: extract_thumbnail_paths(datasourceGlob),
     project: extract_thumbnail_paths(projectGlob),
 }
-// create_thumbnail_list(thumbnails);
 
 export const fallbackThumbnail = (name: string) => {
     return (
-        <svg width="100%" role="img" style={{ aspectRatio: 1 }}>
-            <rect width="100%" height="100%" fill="#6f6f6f"></rect>
-            <text
-                x="50%"
-                y="50%"
-                fill="white"
-                textAnchor="middle"
-                dominantBaseline="middle"
-                fontSize="10pt"
-                className="break-words"
-            >
+        <div className="relative w-full">
+            <img
+                className=""
+                src={defaultThumbnail}
+                alt="scivision-default-thumbnail"
+            />
+            <span className="absolute top-1/4 mr-6 break-all bg-white p-1 font-mono shadow-sm group-hover:shadow-md">
                 {name}
-            </text>
-        </svg>
+            </span>
+        </div>
     )
 }
 
